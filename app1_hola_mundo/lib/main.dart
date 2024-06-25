@@ -1,18 +1,31 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 void main(List<String> args) {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       home: Scaffold(
-          //backgroundColor: Color.fromARGB(0, 0, 255, 0),
-          backgroundColor: Color.fromARGB(255, 250, 167, 24),
-          body: SafeArea(
-            child: Text("Hola mundo",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold)),
-          )),
+        //backgroundColor: Colors.deepPurple,
+        backgroundColor: Color.fromARGB(255, 225, 172, 196),
+        body: SafeArea(
+          child: Column(
+            children: [
+              TextButton(onPressed: () {}, child: Text("Text button")),
+              IconButton(onPressed: () {}, icon: Icon(Icons.check)),
+              ElevatedButton(
+                onPressed: () {
+                  int numero = 100;
+                  print("Presionaste Aceptar $numero");
+                },
+                child: Text("Aceptar"),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("Cancelar"),
+              ),
+            ],
+          ),
+        ),
+      ),
     ),
   );
 }
