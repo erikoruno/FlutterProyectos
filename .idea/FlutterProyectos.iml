@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/app1_hola_mundo/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app1_hola_mundo/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app1_hola_mundo/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app2_init_iu_2024/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app2_init_iu_2024/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app2_init_iu_2024/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app3_xilofono_2024/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app_mind_cafe/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app_mind_cafe/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app_mind_cafe/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app_new_york_times/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app_new_york_times/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app_new_york_times/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app_oschenen/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app_oschenen/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app_oschenen/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
