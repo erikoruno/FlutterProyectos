@@ -1,70 +1,68 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xFF2b2d42),
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: const Text(
-          "QuizzApp",
+        title: Text(
+          "QuizApp",
           style: TextStyle(
-            color: Colors.white,
             fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
         ),
         centerTitle: true,
-        elevation: 30.0,
+        elevation: 10.0,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Center(
-            child: Text(
-              "El hombre llego a la luna?",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
+          const Expanded(
+            flex: 5,
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "El hombre llego a la Luna?",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ),
-          SizedBox(
-            height: 500.0,
-          ),
           Expanded(
-            child: Container(
-              color: Colors.greenAccent,
-              child: TextButton(
+            flex: 1,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: MaterialButton(
                 onPressed: () {},
                 child: Text(
                   "Verdadero",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 20.0),
                 ),
+                color: Colors.greenAccent,
               ),
             ),
           ),
-          SizedBox(
-            height: 10.0,
-          ),
           Expanded(
-            child: Container(
-              color: Colors.pink,
-              child: TextButton(
+            flex: 1,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: MaterialButton(
                 onPressed: () {},
                 child: Text(
                   "Falso",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 20.0),
                 ),
+                color: Colors.redAccent,
               ),
             ),
           ),
