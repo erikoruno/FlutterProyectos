@@ -1,6 +1,45 @@
 import 'package:flutter/material.dart';
 
 class AlertPage extends StatelessWidget {
+  void showMyAlert4(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 80,
+                    height: 80,
+                    child: Image.asset("assets/img/imagen4.jpg"),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text("Share with people"),
+              SizedBox(
+                height: 10.0,
+              ),
+              Text(
+                "The following users have access.",
+                style: TextStyle(
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   void showMyAlert3(BuildContext context) {
     showDialog(
       context: context,
@@ -97,10 +136,48 @@ class AlertPage extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 10.0,
+                height: 5.0,
               ),
             ],
           ),
+          actions: [
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  style: OutlinedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    //backgroundColor: Colors.deepPurple,
+                  ),
+                  child: Text(
+                    "Skip",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      backgroundColor: Colors.blueAccent),
+                  child: Text(
+                    "Text",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         );
       },
     );
@@ -271,6 +348,12 @@ class AlertPage extends StatelessWidget {
                 showMyAlert3(context);
               },
               child: Text("Alert 3"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showMyAlert4(context);
+              },
+              child: Text("Alert 4"),
             ),
           ],
         ),
