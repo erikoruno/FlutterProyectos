@@ -72,6 +72,12 @@
       <excludeFolder url="file://$MODULE_DIR$/app_quizz_app/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/app_quizz_app/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/app_quizz_app/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app7_imc_2024/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app7_imc_2024/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app7_imc_2024/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app_calculator/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app_calculator/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app_calculator/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
