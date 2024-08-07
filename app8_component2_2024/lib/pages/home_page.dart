@@ -135,6 +135,110 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "Overview",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25.0,
+                          color: Colors.blue.shade900,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5.0,
+                      ),
+                      Icon(
+                        Icons.notifications_active_outlined,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "Sept 13,2020",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15.0,
+                          color: Colors.blue.shade900,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Container(
+                padding: const EdgeInsets.all(9.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.25),
+                      offset: const Offset(0, 7),
+                      blurRadius: 16.0,
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(7),
+                          decoration: BoxDecoration(
+                              color: Colors.blue.shade50,
+                              borderRadius: BorderRadius.circular(12)),
+                          child: Icon(
+                            Icons.arrow_upward_rounded,
+                            size: 29.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Sent",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          Text(
+                            "Sending Payment to Clients",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color: Colors.grey.shade400),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Spacer(),
+                    Text(
+                      "\$150",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
