@@ -98,11 +98,11 @@ class ItemComponentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal: 12.0,
+        horizontal: 90.0,
         vertical: 10.0,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.blue.shade900,
         borderRadius: BorderRadius.circular(12.0),
         boxShadow: [
           BoxShadow(
@@ -122,18 +122,14 @@ class ItemComponentWidget extends StatelessWidget {
           );
         },
         leading: Icon(
-          Icons.check_circle_outline,
-          color: Colors.black45,
+          Icons.play_arrow,
+          color: Colors.orange,
         ),
         title: Text(
           title,
-        ),
-        subtitle: Text(
-          "Ir a detalle de $title",
-        ),
-        trailing: Icon(
-          Icons.chevron_right,
-          color: Colors.black45,
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
       ),
     );
