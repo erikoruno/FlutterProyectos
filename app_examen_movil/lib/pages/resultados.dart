@@ -1,16 +1,38 @@
+import 'dart:math';
+
 import 'package:app_examen_movil/pages/mensaje.dart';
 import 'package:flutter/material.dart';
 
 class Resultados extends StatefulWidget {
-  const Resultados({super.key});
+  final double montoPrestamo;
+  final double mes;
+  final double interes;
+
+  const Resultados({
+    super.key,
+    required this.montoPrestamo,
+    required this.mes,
+    required this.interes,
+  });
 
   @override
   State<Resultados> createState() => _ResultadosState();
 }
 
 class _ResultadosState extends State<Resultados> {
+  double calcularMontoMensual(double monto, double interesAnual, int meses) {
+    double interesMensual = (interesAnual / 100) / 12;
+    return monto * interesMensual / (1 - pow((1 + interesMensual), -meses));
+  }
+
   @override
   Widget build(BuildContext context) {
+    double interesMensual = widget.interes / 12;
+    double cuotaMensual = calcularMontoMensual(
+        widget.montoPrestamo, widget.interes, widget.mes.toInt());
+    double totalInteres = (cuotaMensual * widget.mes) - widget.montoPrestamo;
+    double totalPagar = widget.montoPrestamo + totalInteres;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -65,7 +87,7 @@ class _ResultadosState extends State<Resultados> {
                           ),
                           Spacer(),
                           Text(
-                            "S/ 10,000.00",
+                            "S/ ${widget.montoPrestamo.toStringAsFixed(2)}",
                             style: TextStyle(
                               fontSize: 22.0,
                               fontWeight: FontWeight.bold,
@@ -96,7 +118,7 @@ class _ResultadosState extends State<Resultados> {
                           ),
                           Spacer(),
                           Text(
-                            "24",
+                            "${widget.mes.toInt()}",
                             style: TextStyle(
                               fontSize: 22.0,
                               fontWeight: FontWeight.bold,
@@ -127,7 +149,7 @@ class _ResultadosState extends State<Resultados> {
                           ),
                           Spacer(),
                           Text(
-                            "3.7 %",
+                            "${interesMensual.toStringAsFixed(2)} %",
                             style: TextStyle(
                               fontSize: 22.0,
                               fontWeight: FontWeight.bold,
@@ -158,7 +180,7 @@ class _ResultadosState extends State<Resultados> {
                           ),
                           Spacer(),
                           Text(
-                            "S/ 633.68",
+                            "S/ ${cuotaMensual.toStringAsFixed(2)}",
                             style: TextStyle(
                               fontSize: 22.0,
                               fontWeight: FontWeight.bold,
@@ -189,7 +211,7 @@ class _ResultadosState extends State<Resultados> {
                           ),
                           Spacer(),
                           Text(
-                            "S/ 5,208.26",
+                            "S/ ${totalInteres.toStringAsFixed(2)}",
                             style: TextStyle(
                               fontSize: 22.0,
                               fontWeight: FontWeight.bold,
@@ -220,7 +242,7 @@ class _ResultadosState extends State<Resultados> {
                           ),
                           Spacer(),
                           Text(
-                            "S/ 15,208.26",
+                            "S/ ${totalPagar.toStringAsFixed(2)}",
                             style: TextStyle(
                               fontSize: 22.0,
                               fontWeight: FontWeight.bold,

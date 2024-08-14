@@ -88,6 +88,7 @@ class _CalculadorPrestamosState extends State<CalculadorPrestamos> {
                       value: montoPrestamo,
                       min: 1000,
                       max: 50000,
+                      divisions: (50000 - 1000) ~/ 500,
                       onChanged: (double value) {
                         setState(
                           () {
@@ -316,7 +317,11 @@ class _CalculadorPrestamosState extends State<CalculadorPrestamos> {
             ),
             ItemComponentWidget(
               title: "Calcular",
-              toPage: Resultados(),
+              toPage: Resultados(
+                montoPrestamo: montoPrestamo,
+                mes: mes,
+                interes: interes,
+              ),
             ),
           ],
         ),
