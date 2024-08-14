@@ -9,7 +9,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(useMaterial3: false),
+      theme: ThemeData(
+        useMaterial3: false,
+        sliderTheme: SliderThemeData(
+          activeTrackColor: Colors.orange.shade400.withOpacity(0.75),
+          inactiveTrackColor: Colors.grey.shade100,
+          thumbColor: Colors.orange,
+          overlayColor: Colors.orange.shade300.withOpacity(0.3),
+          thumbShape: RoundSliderThumbShape(
+            enabledThumbRadius: 12.0,
+          ),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );

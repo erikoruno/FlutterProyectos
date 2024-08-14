@@ -25,17 +25,17 @@ class HomePage extends StatelessWidget {
                       width: 4,
                     ),
                   ),
-                  // child: Column(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: [
-                  //     Image.asset(
-                  //       'assets/Calculadora.jpg',
-                  //       width: 1,
-                  //       height: 1,
-                  //       fit: BoxFit.cover,
-                  //     ),
-                  //   ],
-                  // ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/img/Calculadora.jpg",
+                        width: 180,
+                        height: 180,
+                        fit: BoxFit.cover,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
