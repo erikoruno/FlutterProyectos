@@ -4,16 +4,17 @@ class ItemTypeWidget extends StatelessWidget {
   String text;
 
   ItemTypeWidget({
+    super.key,
     required this.text,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         vertical: 4.0,
       ),
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 14.0,
         vertical: 4.0,
       ),
@@ -23,7 +24,7 @@ class ItemTypeWidget extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
         ),
       ),
