@@ -10,10 +10,8 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: const Row(
-          mainAxisAlignment: MainAxisAlignment
-              .spaceBetween, // Alinea el contenido a los extremos
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Ícono de YouTube y texto "YouTube"
             Row(
               children: [
                 Stack(
@@ -31,7 +29,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(width: 10), // Espacio entre el ícono y el texto
+                SizedBox(width: 10),
                 Text(
                   "YouTube",
                   style: TextStyle(
@@ -42,7 +40,6 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            // Cuatro íconos alineados a la derecha
             Row(
               children: [
                 Icon(Icons.notifications, color: Colors.white),
