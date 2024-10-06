@@ -1,56 +1,104 @@
+import 'package:app12_youtube_app_2024/models/video_model.dart';
+import 'package:app12_youtube_app_2024/services/api_service.dart';
+import 'package:app12_youtube_app_2024/ui/general/colors.dart';
+import 'package:app12_youtube_app_2024/ui/widgets/item_filter_widget.dart';
+import 'package:app12_youtube_app_2024/ui/widgets/item_video_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final ApiService _apiService = ApiService();
+
+  List<VideoModel> videos = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  getData() {
+    _apiService.getVideos().then((value) {
+      videos = value;
+      setState(() {});
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    _apiService.getVideos();
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 14.0,
+          vertical: 12.0,
+        ),
+        child: Column(
           children: [
-            Row(
-              children: [
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Icon(
-                      FontAwesomeIcons.youtube,
-                      color: Colors.red,
-                      size: 60,
-                    ),
-                    Icon(
-                      Icons.play_arrow,
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              child: Row(
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.explore_outlined,
                       color: Colors.white,
-                      size: 45,
                     ),
-                  ],
-                ),
-                SizedBox(width: 10),
-                Text(
-                  "YouTube",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                    label: const Text(
+                      "Explorar",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      elevation: 2,
+                      backgroundColor: KBrandSecundaryColor,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0,
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                  const SizedBox(
+                    height: 38.0,
+                    child: VerticalDivider(
+                      color: KBrandSecundaryColor,
+                      thickness: 1.0,
+                    ),
+                  ),
+                  ItemFilterWidget(
+                    texto: "Todos",
+                    isSelected: true,
+                  ),
+                  ItemFilterWidget(
+                    texto: "Mixes",
+                    isSelected: false,
+                  ),
+                  ItemFilterWidget(
+                    texto: "Música",
+                    isSelected: false,
+                  ),
+                  ItemFilterWidget(
+                    texto: "Programación",
+                    isSelected: false,
+                  ),
+                ],
+              ),
             ),
-            Row(
-              children: [
-                Icon(Icons.notifications, color: Colors.white),
-                SizedBox(width: 10),
-                Icon(Icons.search, color: Colors.white),
-                SizedBox(width: 10),
-                Icon(Icons.account_circle, color: Colors.white),
-                SizedBox(width: 10),
-                Icon(Icons.more_vert, color: Colors.white),
-              ],
-            ),
+            ListView.builder(
+                shrinkWrap: true,
+                physics: const ScrollPhysics(),
+                itemCount: videos.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ItemVideoWidget(
+                    videoModel: videos[index],
+                  );
+                }),
           ],
         ),
       ),

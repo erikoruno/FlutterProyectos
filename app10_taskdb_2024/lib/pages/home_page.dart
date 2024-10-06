@@ -4,6 +4,8 @@ import 'package:app10_taskdb_2024/widget/my_form_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -25,7 +27,7 @@ class _HomePageState extends State<HomePage> {
       (value) {
         if (value > 0) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            const SnackBar(
               backgroundColor: Colors.indigo,
               content: Row(
                 children: [
@@ -50,13 +52,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Page"),
+        title: const Text("Home Page"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialogForm();
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: FutureBuilder(
         future: DbAdmin.db.getTask(),
@@ -86,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                         //
                         showDialogForm();
                       },
-                      icon: Icon(Icons.edit),
+                      icon: const Icon(Icons.edit),
                     ),
                   ),
                 );

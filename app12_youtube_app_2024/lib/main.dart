@@ -1,4 +1,4 @@
-import 'package:app12_youtube_app_2024/pages/home_page.dart';
+import 'package:app12_youtube_app_2024/pages/init_page..dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -9,9 +9,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Material App',
+      title: 'Clone YouTube App',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      
+      home: InitPage(),
     );
   }
 }

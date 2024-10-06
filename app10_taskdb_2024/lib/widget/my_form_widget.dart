@@ -3,6 +3,8 @@ import 'package:app10_taskdb_2024/models/task_model.dart';
 import 'package:flutter/material.dart';
 
 class MyFormWidget extends StatefulWidget {
+  const MyFormWidget({super.key});
+
   @override
   State<MyFormWidget> createState() => _MyFormWidgetState();
 }
@@ -32,8 +34,8 @@ class _MyFormWidgetState extends State<MyFormWidget> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15.0),
               ),
-              duration: Duration(milliseconds: 1400),
-              content: Row(
+              duration: const Duration(milliseconds: 1400),
+              content: const Row(
                 children: [
                   Icon(Icons.check_circle, color: Colors.white),
                   SizedBox(
@@ -57,13 +59,13 @@ class _MyFormWidgetState extends State<MyFormWidget> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text("Agregar tarea"),
-            SizedBox(
+            const Text("Agregar tarea"),
+            const SizedBox(
               height: 6.0,
             ),
             TextFormField(
               controller: _titleController,
-              decoration: InputDecoration(hintText: "Título"),
+              decoration: const InputDecoration(hintText: "Título"),
               validator: (String? value) {
                 if (value!.isEmpty) {
                   return "El campo es obligatorio";
@@ -72,13 +74,13 @@ class _MyFormWidgetState extends State<MyFormWidget> {
                 return null;
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 6.0,
             ),
             TextFormField(
               controller: _descriptionController,
               maxLines: 2,
-              decoration: InputDecoration(hintText: "Descripción"),
+              decoration: const InputDecoration(hintText: "Descripción"),
               validator: (String? value) {
                 if (value!.isEmpty) {
                   return "El campo es obligatorio";
@@ -87,12 +89,12 @@ class _MyFormWidgetState extends State<MyFormWidget> {
                 return null;
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 6.0,
             ),
             Row(
               children: [
-                Text("Estado: "),
+                const Text("Estado: "),
                 Checkbox(
                   value: isFinished,
                   onChanged: (value) {
@@ -102,7 +104,7 @@ class _MyFormWidgetState extends State<MyFormWidget> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 6.0,
             ),
             Row(
@@ -112,13 +114,13 @@ class _MyFormWidgetState extends State<MyFormWidget> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Cancelar"),
+                  child: const Text("Cancelar"),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     addTask();
                   },
-                  child: Text("Aceptar"),
+                  child: const Text("Aceptar"),
                 ),
               ],
             ),
