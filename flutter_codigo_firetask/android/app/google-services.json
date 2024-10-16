@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "776570216110",
+    "project_id": "codigo-task-66a3e",
+    "storage_bucket": "codigo-task-66a3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776570216110:android:98cf2a77405c1ac45d173f",
+        "android_client_info": {
+          "package_name": "com.example.flutter_codigo_firetask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776570216110-m186oo3rd7b8jdhfbbd8ojir841ueqhi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPoypyIJrU8Tr2VrP5VZTnLt-ABGw4h1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776570216110-m186oo3rd7b8jdhfbbd8ojir841ueqhi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "776570216110-8gku2qtn1anpmo4agaiq5v3rni1qu4d1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.livcode.firetask"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776570216110:android:a4ed47ba2eff7bae5d173f",
+        "android_client_info": {
+          "package_name": "com.livcode.firetask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776570216110-1t54st9qj3audg4igbsk0bbefhu1fe6i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.livcode.firetask",
+            "certificate_hash": "73493f71b6873d552f9c25aa485e4fafcf4a0403"
+          }
+        },
+        {
+          "client_id": "776570216110-m186oo3rd7b8jdhfbbd8ojir841ueqhi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPoypyIJrU8Tr2VrP5VZTnLt-ABGw4h1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776570216110-m186oo3rd7b8jdhfbbd8ojir841ueqhi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "776570216110-8gku2qtn1anpmo4agaiq5v3rni1qu4d1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.livcode.firetask"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
