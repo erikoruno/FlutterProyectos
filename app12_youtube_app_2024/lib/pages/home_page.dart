@@ -1,3 +1,4 @@
+import 'package:app12_youtube_app_2024/models/channel_model.dart';
 import 'package:app12_youtube_app_2024/models/video_model.dart';
 import 'package:app12_youtube_app_2024/services/api_service.dart';
 import 'package:app12_youtube_app_2024/ui/general/colors.dart';
@@ -16,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   final ApiService _apiService = ApiService();
 
   List<VideoModel> videos = [];
+  List<ChannelModel> channels = [];
 
   @override
   void initState() {
@@ -26,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   getData() {
     _apiService.getVideos().then((value) {
       videos = value;
+
       setState(() {});
     });
   }
@@ -97,6 +100,7 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (BuildContext context, int index) {
                   return ItemVideoWidget(
                     videoModel: videos[index],
+                    //channelModel: channels[index],
                   );
                 }),
           ],

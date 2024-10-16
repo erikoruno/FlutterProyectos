@@ -1,0 +1,3 @@
+C:/PROYECTO UTEA 2024/UTEA 2024 - I/PROG. MOVIL/FlutterProyectos/app12_youtube_app_2024/linux/out/build/x64-Debug/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir
+C:/PROYECTO UTEA 2024/UTEA 2024 - I/PROG. MOVIL/FlutterProyectos/app12_youtube_app_2024/linux/out/build/x64-Debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_9a5e6.dir
+C:/PROYECTO UTEA 2024/UTEA 2024 - I/PROG. MOVIL/FlutterProyectos/app12_youtube_app_2024/linux/out/build/x64-Debug/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir

@@ -6,11 +6,9 @@ import 'package:http/http.dart' as http;
 class ApiService {
   Future<List<VideoModel>> getVideos() async {
     List<VideoModel> videosModel = [];
-
     String path =
         "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&key=AIzaSyBKCPhGlDrMr6MXKpiyf7ik5s0EICL2R-A&regionCode=PE";
     Uri uri = Uri.parse(path);
-
     http.Response response = await http.get(uri);
 
     if (response.statusCode == 200) {

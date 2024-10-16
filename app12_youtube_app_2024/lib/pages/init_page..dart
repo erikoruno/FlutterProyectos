@@ -13,7 +13,7 @@ class _InitPageState extends State<InitPage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    HomePage(),
+    const HomePage(),
     const Center(child: Text("Short")),
     const Center(child: Text("Agregar")),
     const Center(child: Text("Suscripcion")),
