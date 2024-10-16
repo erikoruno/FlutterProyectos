@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_firetask/models/user_model.dart';
 import 'package:flutter_codigo_firetask/pages/home_page.dart';
 import 'package:flutter_codigo_firetask/pages/register_page.dart';
+import 'package:flutter_codigo_firetask/services/my_service_firestore.dart';
 import 'package:flutter_codigo_firetask/ui/general/colors.dart';
 import 'package:flutter_codigo_firetask/ui/widgets/button_custom_widget.dart';
 import 'package:flutter_codigo_firetask/ui/widgets/general_widgets.dart';
@@ -22,6 +24,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ["email"]);
+  MyServiceFirestore userService = MyServiceFirestore(collection: "users");
 
   _login() async {
     try {
@@ -55,15 +58,31 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    GoogleSignInAuthentication _googleSignInAuth =
+    GoogleSignInAuthentication googleSignInAuth =
         await googleSignInAccount.authentication;
 
     OAuthCredential credential = GoogleAuthProvider.credential(
-      idToken: _googleSignInAuth.idToken,
-      accessToken: _googleSignInAuth.accessToken,
+      idToken: googleSignInAuth.idToken,
+      accessToken: googleSignInAuth.accessToken,
     );
     UserCredential userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
+
+    if (userCredential.user != null) {
+      UserModel userModel = UserModel(
+        fullName: userCredential.user!.displayName!,
+        email: userCredential.user!.email!,
+      );
+
+      userService.addUser(userModel).then((value) {
+        if (value.isNotEmpty) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+              (route) => false);
+        }
+      });
+    }
   }
 
   @override
