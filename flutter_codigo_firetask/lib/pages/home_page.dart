@@ -1,12 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_firetask/models/task_model.dart';
+import 'package:flutter_codigo_firetask/pages/login_page.dart';
 import 'package:flutter_codigo_firetask/ui/general/colors.dart';
 import 'package:flutter_codigo_firetask/ui/widgets/general_widgets.dart';
 import 'package:flutter_codigo_firetask/ui/widgets/item_task_widget.dart';
 import 'package:flutter_codigo_firetask/ui/widgets/task_form_widget.dart';
 import 'package:flutter_codigo_firetask/ui/widgets/textfield_normal_widget.dart';
 import 'package:flutter_codigo_firetask/utils/task_search_delegate.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class HomePage extends StatelessWidget {
   List<TaskModel> tasksGeneral = [];
@@ -14,6 +17,8 @@ class HomePage extends StatelessWidget {
 
   CollectionReference tasksReference =
       FirebaseFirestore.instance.collection('tasks');
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   showTaskForm(BuildContext context) {
     showModalBottomSheet(
@@ -89,21 +94,42 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Bienvenido Ramón",
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w500,
-                        color: kBrandPrymaryColor,
-                      ),
-                    ),
-                    Text(
-                      "Mis Tareas",
-                      style: TextStyle(
-                        fontSize: 36.0,
-                        fontWeight: FontWeight.w600,
-                        color: kBrandPrymaryColor,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "Bienvenido Ramón",
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w500,
+                                color: kBrandPrymaryColor,
+                              ),
+                            ),
+                            Text(
+                              "Mis Tareas",
+                              style: TextStyle(
+                                fontSize: 36.0,
+                                fontWeight: FontWeight.w600,
+                                color: kBrandPrymaryColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            FacebookAuth.instance.logOut();
+                            _googleSignIn.signOut();
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()),
+                                (route) => false);
+                          },
+                          icon: Icon(Icons.exit_to_app),
+                        ),
+                      ],
                     ),
                     divider10(),
                     TextFieldNormalWidget(

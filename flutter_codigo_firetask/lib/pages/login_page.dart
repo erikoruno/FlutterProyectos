@@ -9,6 +9,7 @@ import 'package:flutter_codigo_firetask/ui/widgets/button_custom_widget.dart';
 import 'package:flutter_codigo_firetask/ui/widgets/general_widgets.dart';
 import 'package:flutter_codigo_firetask/ui/widgets/textfield_normal_widget.dart';
 import 'package:flutter_codigo_firetask/ui/widgets/textfield_password_widget.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -74,14 +75,63 @@ class _LoginPageState extends State<LoginPage> {
         email: userCredential.user!.email!,
       );
 
-      userService.addUser(userModel).then((value) {
-        if (value.isNotEmpty) {
+      userService.existUser(userCredential.user!.email!).then((value) {
+        if (value == false) {
+          userService.addUser(userModel).then((value) {
+            if (value.isNotEmpty) {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                  (route) => false);
+            }
+          });
+        } else {
           Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
               (route) => false);
         }
       });
+    }
+  }
+
+  _loginWithFacebook() async {
+    LoginResult _loginResult = await FacebookAuth.instance.login();
+    if (_loginResult.status == LoginStatus.success) {
+      Map<String, dynamic> userData = await FacebookAuth.instance.getUserData();
+
+      AccessToken accessToken = _loginResult.accessToken!;
+
+      OAuthCredential credential =
+          FacebookAuthProvider.credential(accessToken.tokenString);
+
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+
+      if (userCredential.user != null) {
+        UserModel userModel = UserModel(
+          fullName: userCredential.user!.displayName!,
+          email: userCredential.user!.email!,
+        );
+
+        userService.existUser(userCredential.user!.email!).then((value) {
+          if (value == false) {
+            userService.addUser(userModel).then((value) {
+              if (value.isNotEmpty) {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                    (route) => false);
+              }
+            });
+          } else {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+                (route) => false);
+          }
+        });
+      }
     }
   }
 
@@ -147,7 +197,7 @@ class _LoginPageState extends State<LoginPage> {
                   color: const Color(0xff507cc0),
                   icon: "facebook",
                   onPressed: () {
-                    _googleSignIn.signOut();
+                    _loginWithFacebook();
                   },
                 ),
                 divider20(),
